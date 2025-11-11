@@ -1,0 +1,14 @@
+[Unit]
+Description=Electrical Panel Audio Monitor
+After=sound.target network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/panel_monitor
+ExecStart=/usr/bin/python3 /home/pi/panel_monitor/electrical_panel_monitor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
